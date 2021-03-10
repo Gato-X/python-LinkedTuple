@@ -20,29 +20,34 @@ pip3 install linkedtuple
 
 ## Class
 
->**LinkedTuple(head[,tail])**
->> Returns a new LinkedTuple instance with the provided head and possibly a tail
+- **LinkedTuple(head[,tail])**
+	Returns a new LinkedTuple instance with the provided head and possibly a tail
 
 	
 ## Properties
 
->**head**
->> read only head 
+- **head**
+
+	read only head 
 	
->**tail**
->> read only tail 
+- **tail**
+
+	read only tail 
 	
 	
 ## Methods
 
->**make(iterable)** [classmethod]
->> Returns a new LinkedTuple chain with the elements taken from the iterable
+- **make(iterable)** [classmethod]
 
->**plus(element)**
->> Returns a new LinkedTuple with _element_ as head and the current ListTuple as tail
+	Returns a new LinkedTuple chain with the elements taken from the iterable
 
->**reversed()**
->> Returns a new LinkedTuple with the items in reverse order
+- **plus(element)**
+
+	Returns a new LinkedTuple with _element_ as head and the current ListTuple as tail
+
+- **reversed()**
+
+	Returns a new LinkedTuple with the items in reverse order
 
 ## Examples
 
