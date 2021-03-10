@@ -1,5 +1,4 @@
-from builtins import property as _property, tuple as _tuple
-from operator import itemgetter as _itemgetter
+from operator import itemgetter
 from collections import OrderedDict
 from functools import reduce
 
@@ -13,7 +12,7 @@ class LinkedTuple(tuple):
 	def __new__(_cls, head, tail=None):
 		'Create new instance of LinkedTuple(head, tail)'
 		assert(tail is None or isinstance(tail,LinkedTuple))
-		return _tuple.__new__(_cls, (head, tail))
+		return tuple.__new__(_cls, (head, tail))
 
 	@classmethod
 	def make(cls, iterable, new=tuple.__new__):
@@ -37,7 +36,7 @@ class LinkedTuple(tuple):
 			n = LinkedTuple(q.head, n)
 			q = q.tail
 
-		return n	
+		return n
 
 	def plus(self, new_head):
 		'Creates and returns a new LinkedTuple with a new head and self as tail'
@@ -63,7 +62,10 @@ class LinkedTuple(tuple):
 	@property
 	def __dict__(self):
 		'Return a new dict mapping field names to their values'
-		return OrderedDict(head=self[0], tail=self[1])
+		d = OrderedDict()
+		d['head']=self[0]
+		d['tail']=self[1]
+		return OrderedDict(d)
 
 	def __getnewargs__(self):
 		'Return self as a plain tuple.  Used by copy and pickle.'
@@ -73,7 +75,7 @@ class LinkedTuple(tuple):
 		'Exclude the OrderedDict from pickling'
 		return None
 
-	head = _property(_itemgetter(0), doc='Head')
+	head = property(itemgetter(0), doc='Head')
 
-	tail = _property(_itemgetter(1), doc='Tail')
+	tail = property(itemgetter(1), doc='Tail')
 
