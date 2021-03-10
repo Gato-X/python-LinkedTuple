@@ -15,12 +15,13 @@ Being a nested container of elements, a LinkedTuple is less efficient than a lis
 
 ## Install using pip
 ```
-pip3 install linkedtuple
+pip install linkedtuple
 ```
 
 ## Class
 
 - **LinkedTuple(head[,tail])**
+
 	Returns a new LinkedTuple instance with the provided head and possibly a tail
 
 	
